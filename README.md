@@ -5,10 +5,10 @@ A Flutter Project that makes bills and receipts easy to split among friends and 
 ## Key Development Notes
 
 ### Package Versions
-Make sure to that the [online documentation](https://developer.android.com/studio/build/application-id.html) for used packages [packages]:(pubspec.yaml) match-up.
+Make sure to that the [online documentation](https://developer.android.com/studio/build/application-id.html) for used packages [packages](./pubspec.yaml) match-up.
 
 Also note, the following changes were made to the App-level [build-gradle](./android/app/build.gradle) so we can import 64k+ Methods
-'''
+```
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         ...
@@ -22,7 +22,7 @@ Also note, the following changes were made to the App-level [build-gradle](./and
         compile 'com.android.support:multidex:1.0.3'
         ...
     }
-'''
+```
 
 ### Getting Started - Flutter Development
 
