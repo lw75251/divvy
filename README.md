@@ -1,8 +1,30 @@
-# divvy
+# Divvy
 
-A new Flutter project.
+A Flutter Project that makes bills and receipts easy to split among friends and family!
 
-## Getting Started
+## Key Development Notes
+
+### Package Versions
+Make sure to that the [online documentation](https://developer.android.com/studio/build/application-id.html) for used packages [packages]:(pubspec.yaml) match-up.
+
+Also note, the following changes were made to the App-level [build-gradle](./android/app/build.gradle) so we can import 64k+ Methods
+'''
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        ...
+        minSdkVersion 16
+        targetSdkVersion 27
+        multiDexEnabled true
+    }
+    ...
+    dependencies {
+        // MULTIDEX ADDED TO SUPPORT 64k Methods+ Imported BECAUSE minSdkVersion 16 < 20
+        compile 'com.android.support:multidex:1.0.3'
+        ...
+    }
+'''
+
+### Getting Started - Flutter Development
 
 This project is a starting point for a Flutter application.
 
