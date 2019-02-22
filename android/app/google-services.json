@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "231670778992",
+    "firebase_url": "https://divvy-d1a54.firebaseio.com",
+    "project_id": "divvy-d1a54",
+    "storage_bucket": "divvy-d1a54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231670778992:android:ba6bd01aeb57e6cc",
+        "android_client_info": {
+          "package_name": "com.leon.divvy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "231670778992-rqooc94e5p4i5m8fc1u88b2jbv8sk9t2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoiuIFsrJ_wxLbdrs5ex2I4zdnbP7JoCU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
