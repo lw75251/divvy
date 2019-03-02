@@ -19,18 +19,6 @@ class _UserProfileState extends State<UserProfile> {
       .listen((state)=> setState( () => _loading = state ));
   }
 
-class LoginButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: authService.user,
-      builder: (context, snapshot) {
-        snapshot.hasData ? null: null;
-      }
-    );
-  }
-}
-
   @override
   Widget build(BuildContext context) {
     return Column(

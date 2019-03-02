@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
       new IconButton(
         icon: new Icon(FontAwesomeIcons.signInAlt),
         tooltip: "Sign In",
-        onPressed: (){},
+        onPressed: () => authService.googleSignIn(),
       )
     ],
 
