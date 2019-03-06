@@ -1,4 +1,5 @@
-import 'package:divvy/Login/service/auth.dart';
+
+import 'package:divvy/service/auth.dart';
 import 'package:flutter/material.dart';
 
 class UserProfile extends StatefulWidget {
