@@ -42,7 +42,6 @@ class AuthService {
       idToken: googleAuth.idToken
     );
     final FirebaseUser user = await _auth.signInWithCredential(credential);
-
     updateUserData(user);
     print("signed in " + user.displayName);
 
@@ -51,14 +50,17 @@ class AuthService {
   }
 
   void updateUserData( FirebaseUser user ) async {
-    DocumentReference ref = _db.collection('users').document(user.uid);
-    return ref.setData( {
-      'uid': user.uid,
-      'email': user.email,
-      'photoURL': user.photoUrl,
-      'displayName': user.displayName,
-      'lastSeen': DateTime.now()
-    }, merge: true);
+    // DocumentReference ref = _db.collection('users').document(user.uid);
+    // return ref.setData( {
+    //   'uid': user.uid,
+    //   'email': user.email,
+    //   'photoURL': user.photoUrl,
+    //   'displayName': user.displayName,
+    //   'lastSeen': DateTime.now()
+    // }, merge: true);
+    
+
+
   }
 }
 

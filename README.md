@@ -2,6 +2,11 @@
 
 A Flutter Project that makes bills and receipts easy to split among friends and family!
 
+Must run in order to JSON Serialize Model Objects 
+```
+flutter packages pub run build_runner build
+```
+
 ## Key Development Notes
 
 ### Package Versions
