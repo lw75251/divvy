@@ -10,7 +10,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.2.0 <3.0.0"
 
 # Check to see if supported packages have been upgraded
 # https://flutter.io/docs/development/packages-and-plugins/androidx-compatibility
@@ -19,12 +19,17 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_bloc: ^0.13.0
+  meta: ^1.1.6
+  equatable: ^0.2.0
+  
   firebase_core: ^0.2.5+1
   firebase_analytics: ^1.1.0
   cloud_firestore: ^0.8.2+3
   firebase_auth: ^0.7.0
   google_sign_in: ^3.2.4
-  rxdart: 0.21.0
+  rxdart: 0.22.0
+
   camera: ^0.4.0+3
   path_provider: ^0.5.0+1
   json_annotation: ^2.0.0

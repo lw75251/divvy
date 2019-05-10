@@ -1,33 +1,59 @@
-import 'package:divvy/BlocProviders/AuthBlocProvider.dart';
-import 'package:divvy/BlocProviders/LoginBlocProvider.dart';
-import 'package:divvy/ui/Login/splash.dart';
+import 'package:bloc/bloc.dart';
+import 'package:divvy/Domain/Global/repository/UserRepository.dart';
+import 'package:divvy/Domain/Global/simple_bloc_delegate.dart';
+import 'package:divvy/ui/Main/Login/login_screen.dart';
+import 'package:divvy/ui/home_screen.dart';
+import 'package:divvy/ui/spalsh_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'Domain/AuthBloc/bloc.dart';
 
-void main() => runApp(MyApp());
+main() {
+  BlocSupervisor().delegate = SimpleBlocDelegate();
+  runApp(App());
+}
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class App extends StatefulWidget {
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  final UserRepository _userRepository = UserRepository();
+  AuthenticationBloc _authenticationBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _authenticationBloc = AuthenticationBloc(userRepository: _userRepository);
+    _authenticationBloc.dispatch(AppStarted());
+  }
+
   @override
   Widget build(BuildContext context) {
-    return AuthBlocProvider(
-      child: LoginBlocProvider(
-        child: MaterialApp(
-            title: 'Divvy',
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              /* Must specify FULL 8 Hexadecimals (0xFF------ means 100% opague)
-                - Dark Color that I like 0xFF353535
-            */
-              fontFamily: "Raleway",
-              primaryColor: new Color(0xFFA63D40),
-              primaryIconTheme: IconThemeData(color: const Color(0xFFE0F2E9)),
-              primaryTextTheme:
-                  TextTheme(title: TextStyle(color: const Color(0xFFE0F2E9))),
-              textTheme:
-                  TextTheme(title: TextStyle(color: const Color(0xFFE0F2E9))),
-            ),
-            home: new SplashScreen()),
+    return BlocProvider(
+      bloc: _authenticationBloc,
+      child: MaterialApp(
+        home: BlocBuilder(
+          bloc: _authenticationBloc,
+          builder: (BuildContext context, AuthenticationState state) {
+            if (state is Uninitialized) {
+              return SplashScreen();
+            }
+            if (state is Unauthenticated) {
+              return LoginScreen(userRepository: _userRepository);
+            }
+            if (state is Authenticated) {
+              return HomeScreen(name: state.displayName);
+            }
+          },
+        ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _authenticationBloc.dispose();
+    super.dispose();
   }
 }
