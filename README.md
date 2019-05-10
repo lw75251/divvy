@@ -29,6 +29,11 @@ Also note, the following changes were made to the App-level [build-gradle](./and
     }
 ```
 
+### Resources
+[BLoC Pattern](https://medium.com/flutter-community/flutter-login-tutorial-with-flutter-bloc-ea606ef701ad)
+[BLoC Flutter Package](https://pub.dev/packages/flutter_bloc)
+
+
 ### Getting Started - Flutter Development
 
 This project is a starting point for a Flutter application.
